@@ -19,15 +19,26 @@ and run Python code; now you just need to learn Python!
 
 import sys
 
+def hellow(name):
+  # Get the name from the command line, using 'World' as a fallback.
+  # if len(name) >= 2:
+  #   name = name + '!!!!'
+  # else:
+  #   name = 'World'
+  if name == "Deepak" or name == "Renu":
+    name = "Welcome " + name
+  else:
+      name = "Who the fuck is " + name
+
+
+  print (name)
+
 # Define a main() function that prints a little greeting.
 def main():
-  # Get the name from the command line, using 'World' as a fallback.
-  if len(sys.argv) >= 2:
-    name = sys.argv[1]
-  else:
-    name = 'World'
-  print 'yay', name
+   hellow(sys.argv[1])
 
 # This is the standard boilerplate that calls the main() function.
-if __name__ == '__main__':
-  main()
+if __name__ == "__main__":
+    main()
+
+
