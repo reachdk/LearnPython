@@ -39,6 +39,34 @@ print_words() and print_top().
 
 import sys
 
+def readfile(filename):
+  openFile = open(filename, 'rt')
+  fileLines = openFile.readlines()
+  fileWords = {}
+  for k in fileLines:
+    s = str(k)
+    s = s.lower()
+    s = s.split()
+    for m in s:
+      if m in fileWords:
+        fileWords[m] += 1
+      else:
+        fileWords[m] = 1
+  fileWords = sorted(fileWords.items(), key=lambda item: item[1], reverse=True)
+  openFile.close()
+  return fileWords
+
+
+def print_words(filename):
+  printWords = readfile(filename)
+  print(printWords)
+
+def print_top(filename):
+  printTop = readfile(filename)
+  print(printTop[:20])
+
+
+
 # +++your code here+++
 # Define print_words(filename) and print_top(filename) functions.
 # You could write a helper utility function that reads a file
@@ -63,6 +91,8 @@ def main():
   else:
     print('unknown option: ' + option)
     sys.exit(1)
+
+
 
 if __name__ == '__main__':
   main()
